@@ -21,7 +21,11 @@ public class AboutView extends Main {
         TextField emailField = new TextField();
         emailField.setPlaceholder("Email");
         add(emailField);
+
         add(new Button("Subscribe to our newsletter", e -> Notification.show("Subscribed")));
+
+        TextField textField = new TextField();
+        add(textField);
     }
 
 }
