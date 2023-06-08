@@ -4,6 +4,7 @@ import com.example.application.views.about.AboutView;
 import com.example.application.views.helloworld.HelloWorldView;
 import com.vaadin.flow.component.applayout.AppLayout;
 import com.vaadin.flow.component.applayout.DrawerToggle;
+import com.vaadin.flow.component.dependency.JavaScript;
 import com.vaadin.flow.component.html.Footer;
 import com.vaadin.flow.component.html.H1;
 import com.vaadin.flow.component.html.H2;
@@ -18,6 +19,7 @@ import org.vaadin.lineawesome.LineAwesomeIcon;
 /**
  * The main view is a top-level placeholder for other views.
  */
+@JavaScript("https://unpkg.com/accessibility-checker-engine@latest/ace.js")
 public class MainLayout extends AppLayout {
 
     private H2 viewTitle;
