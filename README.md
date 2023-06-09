@@ -1,45 +1,29 @@
-# My App
+# Accessibility checker demo
 
-This project can be used as a starting point to create your own Vaadin application with Spring Boot.
-It contains all the necessary configuration and some placeholder files to get you started.
+You can try the accessibility checker on any Vaadin application.
 
-## Running the application
+It has been tested with Vaadin 24.1.
 
-The project is a standard Maven project. To run it from the command line,
-type `mvnw` (Windows), or `./mvnw` (Mac & Linux), then open
-http://localhost:8080 in your browser.
+In your Vaadin application you need to add:
+- A Javascript package in your application: `@JavaScript("https://unpkg.com/accessibility-checker-engine@latest/ace.js")`
+- A configuration `vaadin.frontend.hotdeploy=true` in your application.properties for a Spring Boot application
 
-You can also import the project to your IDE of choice as you would with any
-Maven project. Read more on [how to import Vaadin projects to different IDEs](https://vaadin.com/docs/latest/guide/step-by-step/importing) (Eclipse, IntelliJ IDEA, NetBeans, and VS Code).
+You need to run the application.
 
-## Deploying to Production
+Then you need to pull the vaadin/flow project on git (branch dev-tools/accessibility)
+https://github.com/vaadin/flow/tree/dev-tools/accessibility
 
-To create a production build, call `mvnw clean package -Pproduction` (Windows),
-or `./mvnw clean package -Pproduction` (Mac & Linux).
-This will build a JAR file with all the dependencies and front-end resources,
-ready to be deployed. The file can be found in the `target` folder after the build completes.
+In this project, you need to go to the vaadin-dev-tools folder and run:
+-  `npm install`
+-  `npm run patch-app  /Users/xxx/Documents/devtools-accessibility-demo` (with the absolute path or the relative path of your Vaadin project)
+-  `npm start`
 
-Once the JAR file is built, you can run it using
-`java -jar target/myapp-1.0-SNAPSHOT.jar`
 
-## Project structure
+Every time you are restarting your demo application you need to apply the patch.
 
-- `MainLayout.java` in `src/main/java` contains the navigation setup (i.e., the
-  side/top bar and the main menu). This setup uses
-  [App Layout](https://vaadin.com/docs/components/app-layout).
-- `views` package in `src/main/java` contains the server-side Java views of your application.
-- `views` folder in `frontend/` contains the client-side JavaScript views of your application.
-- `themes` folder in `frontend/` contains the custom CSS styles.
+## Screenshots
 
-## Useful links
-
-- Read the documentation at [vaadin.com/docs](https://vaadin.com/docs).
-- Follow the tutorial at [vaadin.com/docs/latest/tutorial/overview](https://vaadin.com/docs/latest/tutorial/overview).
-- Create new projects at [start.vaadin.com](https://start.vaadin.com/).
-- Search UI components and their usage examples at [vaadin.com/docs/latest/components](https://vaadin.com/docs/latest/components).
-- View use case applications that demonstrate Vaadin capabilities at [vaadin.com/examples-and-demos](https://vaadin.com/examples-and-demos).
-- Build any UI without custom CSS by discovering Vaadin's set of [CSS utility classes](https://vaadin.com/docs/styling/lumo/utility-classes). 
-- Find a collection of solutions to common use cases at [cookbook.vaadin.com](https://cookbook.vaadin.com/).
-- Find add-ons at [vaadin.com/directory](https://vaadin.com/directory).
-- Ask questions on [Stack Overflow](https://stackoverflow.com/questions/tagged/vaadin) or join our [Discord channel](https://discord.gg/MYFq5RTbBn).
-- Report issues, create pull requests in [GitHub](https://github.com/vaadin).
+![Screenshot of the application](screenshots/accessibility_screenshot_1.png)
+![Screenshot of the application](screenshots/accessibility_screenshot_2.png)
+![Screenshot of the application](screenshots/accessibility_screenshot_3.png)
+![Screenshot of the application](screenshots/accessibility_screenshot_4.png)
