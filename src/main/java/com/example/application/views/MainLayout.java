@@ -5,10 +5,7 @@ import com.example.application.views.helloworld.HelloWorldView;
 import com.vaadin.flow.component.applayout.AppLayout;
 import com.vaadin.flow.component.applayout.DrawerToggle;
 import com.vaadin.flow.component.dependency.JavaScript;
-import com.vaadin.flow.component.html.Footer;
-import com.vaadin.flow.component.html.H1;
-import com.vaadin.flow.component.html.H2;
-import com.vaadin.flow.component.html.Header;
+import com.vaadin.flow.component.html.*;
 import com.vaadin.flow.component.orderedlayout.Scroller;
 import com.vaadin.flow.component.sidenav.SideNav;
 import com.vaadin.flow.component.sidenav.SideNavItem;
@@ -22,7 +19,7 @@ import org.vaadin.lineawesome.LineAwesomeIcon;
 @JavaScript("https://unpkg.com/accessibility-checker-engine@latest/ace.js")
 public class MainLayout extends AppLayout {
 
-    private H2 viewTitle;
+    private H1 viewTitle;
 
     public MainLayout() {
         setPrimarySection(Section.DRAWER);
@@ -32,22 +29,23 @@ public class MainLayout extends AppLayout {
 
     private void addHeaderContent() {
         DrawerToggle toggle = new DrawerToggle();
-        toggle.getElement().setAttribute("aria-label", "Menu toggle");
+        toggle.setAriaLabel("Menu toggle");
 
-        viewTitle = new H2();
-        viewTitle.addClassNames(LumoUtility.FontSize.LARGE, LumoUtility.Margin.NONE);
+        viewTitle = new H1();
+        viewTitle.addClassNames(LumoUtility.FontSize.LARGE);
 
-        addToNavbar(true, toggle, viewTitle);
+        Header header = new Header(toggle, viewTitle);
+        header.addClassNames(LumoUtility.Display.FLEX, LumoUtility.AlignItems.CENTER);
+        addToNavbar(true, header);
     }
 
     private void addDrawerContent() {
-        H1 appName = new H1("My App");
-        appName.addClassNames(LumoUtility.FontSize.LARGE, LumoUtility.Margin.NONE);
-        Header header = new Header(appName);
+        Span appName = new Span("My App");
+        appName.addClassNames(LumoUtility.FontSize.LARGE, LumoUtility.Margin.SMALL);
 
         Scroller scroller = new Scroller(createNavigation());
 
-        addToDrawer(header, scroller, createFooter());
+        addToDrawer(appName, scroller, createFooter());
     }
 
     private SideNav createNavigation() {
